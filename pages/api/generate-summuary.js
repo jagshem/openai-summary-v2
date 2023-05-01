@@ -22,7 +22,7 @@ const systemPrompt = `Sen bir metin özetleme aracısın. Sana girilen metinleri
 export default async function handler(req, res) {
   await initMiddleware(cors)(req, res)
 
-  const apiKey = process.env.OPENAI_API_KEY
+  const apiKey = req.body.apiKey ? req.body.apiKey : process.env.OPENAI_API_KEY
   const configuration = new Configuration({ apiKey })
   const openai = new OpenAIApi(configuration)
 
