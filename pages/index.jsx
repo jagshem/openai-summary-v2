@@ -4,6 +4,7 @@ export default function Home() {
   const [loading, setLoading] = useState(false)
   const [query, setQuery] = useState('')
   const [summaries, setSummaries] = useState([])
+  const [apiKey, setApiKey] = useState('')
 
   const submitHandle = (e) => {
     e.preventDefault()
@@ -11,7 +12,7 @@ export default function Home() {
     fetch('/api/generate-summuary', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query }),
+      body: JSON.stringify({ query, apiKey }),
     })
       .then((res) => res.json())
       .then((res) => {
@@ -60,7 +61,8 @@ export default function Home() {
             </span>
           </h6>
           <p className="text-base font-medium text-zinc-600 mt-2">
-            Girdiğiniz metni özetleyen güzel bir araç!
+            Girdiğiniz metni özetleyen bir araç. Developed By Tunahan
+            (Jagshem#1948)
           </p>
         </div>
       </header>
@@ -68,6 +70,12 @@ export default function Home() {
         onSubmit={submitHandle}
         className="flex gap-x-4 items-center justify-center"
       >
+        <input
+          value={apiKey}
+          onChange={(e) => setApiKey(e.target.value)}
+          placeholder="OpenAI API Anahtarı"
+          className="w-[400px] bg-zinc-100 outline-none focus:bg-zinc-300 p-4 rounded-md text-[15px] font-medium"
+        />
         <textarea
           value={query}
           id="input-textarea"
