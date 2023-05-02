@@ -61,8 +61,8 @@ export default function Home() {
             </span>
           </h6>
           <p className="text-base font-medium text-zinc-600 mt-2 text-center">
-            Girdiğiniz metni özetleyen bir araç. Developed By Tunahan
-            (Jagshem#1948)
+            Girdiğiniz metni özetleyen bir araç. Developed By Tunahan Dogan
+            (jagshem#1948)
           </p>
         </div>
       </header>
